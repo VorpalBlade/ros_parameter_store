@@ -1,5 +1,6 @@
 from __future__ import (print_function, absolute_import, division)
 
+import os
 import yaml
 
 import rospy
@@ -45,8 +46,8 @@ class Node(object):
 
     def __init__(self):
         """Constructor"""
-        # Path with yaml files
-        self._default_path = Path(rospy.get_param('~default_path'))
+        # Path with yaml files with default values
+        self._defaults_path = Path(rospy.get_param('~defaults_path'))
         # YAML file to save parameters to
         self._save_path = Path(rospy.get_param('~save_path'))
         self._managed_parameters = {}
@@ -54,7 +55,7 @@ class Node(object):
         self._save_srv = rospy.Service('save_param', SaveParam, self._callback_save_param)
 
         # Load defaults
-        for p in self._default_path.rglob('*.yaml'):  # type: Path
+        for p in self._defaults_path.rglob('*.yaml'):  # type: Path
             self._managed_parameters.update(_load_file(p))
 
         # Load persisted values
@@ -70,6 +71,8 @@ class Node(object):
         """Save managed parameters"""
         with self._save_path.open(mode='wb') as fh:
             yaml.safe_dump(self._managed_parameters, fh)
+            fh.flush()
+            os.fsync(fh.fileno())
 
     def _restore_to_ros(self):
         """Restore all managed parameters to parameter server"""

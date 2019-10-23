@@ -22,7 +22,7 @@ represent namespaces. For example:
 
 This node has two mandatory parameters:
 
-* `~default_path` (`string`) - Path to *directory* containing default YAML files
+* `~defaults_path` (`string`) - Path to *directory* containing default YAML files
   that should be loaded
 * `~save_path` (`string`) - Path to *file* that will be used to store parameters
   to.
