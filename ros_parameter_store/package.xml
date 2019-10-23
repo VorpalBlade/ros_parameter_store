@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>ros_parameter_store</name>
+  <version>0.0.1</version>
+  <description>Parameter persistence to file</description>
+
+  <maintainer email="VorpalBlade@users.noreply.github.com">Arvid Norlander</maintainer>
+  <author email="VorpalBlade@users.noreply.github.com">Arvid Norlander</author>
+  <license>GPLv3</license>
+
+  <!-- Url tags are optional, but multiple are allowed, one per tag -->
+  <!-- Optional attribute type can be: website, bugtracker, or repository -->
+  <url type="repository">https://github.com/VorpalBlade/ros_parameter_store</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>ros_parameter_store_msgs</depend>
+  <build_depend>rospy</build_depend>
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>rosparam</exec_depend>
+
+  <!-- The export tag contains other, unspecified, tags -->
+  <export>
+    <!-- Other tools can request additional information be placed here -->
+
+  </export>
+</package>
