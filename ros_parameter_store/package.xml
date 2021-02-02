@@ -1,5 +1,8 @@
 <?xml version="1.0"?>
-<package format="2">
+<?xml-model
+  href="http://download.ros.org/schema/package_format3.xsd"
+  schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
   <name>ros_parameter_store</name>
   <version>0.0.1</version>
   <description>Parameter persistence to file</description>
@@ -12,15 +15,19 @@
   <!-- Optional attribute type can be: website, bugtracker, or repository -->
   <url type="repository">https://github.com/VorpalBlade/ros_parameter_store</url>
 
+  <build_depend>rospy</build_depend>
+  <buildtool_depend condition="$ROS_PYTHON_VERSION == 2">python-setuptools</buildtool_depend>
+  <buildtool_depend condition="$ROS_PYTHON_VERSION == 3">python3-setuptools</buildtool_depend>
   <buildtool_depend>catkin</buildtool_depend>
   <depend>ros_parameter_store_msgs</depend>
-  <build_depend>rospy</build_depend>
-  <exec_depend>rospy</exec_depend>
+  <exec_depend condition="$ROS_PYTHON_VERSION == 2">python-yaml</exec_depend>
+  <exec_depend condition="$ROS_PYTHON_VERSION == 2">python-pathlib2</exec_depend>
+  <exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-yaml</exec_depend>
   <exec_depend>rosparam</exec_depend>
+  <exec_depend>rospy</exec_depend>
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>
     <!-- Other tools can request additional information be placed here -->
-
   </export>
 </package>

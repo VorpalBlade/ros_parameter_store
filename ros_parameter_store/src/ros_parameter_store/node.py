@@ -5,7 +5,10 @@ import yaml
 
 import rospy
 from funcy.py3 import walk_keys
-from pathlib2 import Path
+try:
+    from pathlib import Path
+except ImportError:
+    from pathlib2 import Path
 from ros_parameter_store_msgs.srv import SaveParam, SaveParamRequest, SaveParamResponse
 
 

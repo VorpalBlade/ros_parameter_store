@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.0.2)
 project(ros_parameter_store)
 
 ## Find catkin macros and libraries
@@ -38,7 +38,7 @@ include_directories(
 ## Install ##
 #############
 
-install(PROGRAMS
+catkin_install_python(PROGRAMS
   scripts/parameter_store
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
