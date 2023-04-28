@@ -1,5 +1,11 @@
 # ROS parameter store
 
+**NOTE**: I no longer work in the field of robotics, this is not maintained. But
+hopefully the ideas and techniques presented here might be of use to you. Or the
+software itself might even still work!
+
+---
+
 Implements parameter store to file. Inspired by [mongodb_store]() but designed
 to be simpler and more reliable to power failures. The API is designed to be
 similar to a subset of [mongodb_store]().
